@@ -2030,11 +2030,18 @@ impl Distribution<&'static str> for NameList {
     }
 }
 
+/// Fun `rand::Distribution`s for generating random words.
 pub enum WordGen {
+    /// Generates a random syllable.
     Syb,
+    /// Generates a random real-ish sounding word.
     Word,
+    /// Generates a random real-ish sounding word and makes it title-case.
     Title,
-    Ticker(String)
+    /// Generates a random stock ticker based on the provided string.
+    ///
+    /// Capital letters will be much more likely to be in the ticker. Vowels are less likely.
+    Ticker(String),
 
 }
 
